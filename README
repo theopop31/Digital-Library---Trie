@@ -1,0 +1,39 @@
+/* POPESCU Ioan Emanuel Theodor - 315CB */
+
+functiiTrie.c - functiile folosite pentru operatiile pa arborii de tip Trie;
+
+trie.h - definitii pentru numarul maxim de caractere din titlu, din numele
+			autorului, numarul maxim de litere in alfabet; definitia structurii
+			in care se retin informatiile despre carte, structurii pentru
+			arborele de tip T1 si structurii pentru arborele de tip T2;
+main.c - fisierul in care apelam functiile si efectuam operatiile cerute
+
+	Structura arborelui de tip T1 contine un vector de fii(noduri) fiecare
+reprezentand una din literele de alfabet, o variabila in care vom retine
+daca un nod este frunza sau nu si un camp de tip Info in care retinem detaliile
+despre o carte.
+	Structura arborelui de tip T2 este asemanatoare structurii mentionate mai
+sus, doar ca in loc de campul de tip Info contine un camp de tip T1 in care vom
+retine cate un arbore de tip T1 pentru fiecare frunza din arborele T2.
+	Principala idee din spatele implementarii acestor structuri este ca fiecare
+nod poate avea maxim 68(dimensiunea alfabetului dat) de fii. Fiecare element 
+care nu este NULL din vector reprezinta o litera din alfabet. Pentru inserarea
+in arbore folosim o functie care primeste ca parametru un caracter si intoarce
+pozitia acestuia in alfabet. Astfel, cand inseram un sir de caractere in arbore
+il vom parcurge caracter cu caracter, vom obtine indexul acestuia din alfabet
+si vom verifica daca nodul cu acest indice din vectorul de fii al nodului
+curent este alocat, alocandu-l daca nu. Apoi noul nod alocat(sau nodul deja
+existent) de la indicele calculat va deveni nodul curent. La sfarsitul
+parcurgerii marcam ultimul nod ca frunza. Pentru cautarea unui string in arbore
+se aplica o metoda asemanatoare, in sensul ca pentru fiecare caracter din sir
+obtinem indicele acestuia din alfabet si verificam daca fiul cu acest indice
+exista sau nu. In cazul in care nu exista inseamna ca stringul nu se afla in
+arbore. Daca dupa parcurgere am ajuns pe o frunza inseamna ca am gasit sirul.
+	Pentru afisarea unui arbore de prefixe am abordat o metoda recursiva, in
+care construim un string pe masura ce parcurgem arborele si il afisam cand
+ajungem la o frunza. Cand parcurgem vectorul de fii, pentru fiecare nod alocat
+vom adauga la sir litera din alfabet corespunzatoare lui si vom parcurge mai 
+departe recursiv pe urmatorul nivel cu fii nodului curent.
+
+Punctaj local : 65/135
+Bonus : 0.0/20.0
